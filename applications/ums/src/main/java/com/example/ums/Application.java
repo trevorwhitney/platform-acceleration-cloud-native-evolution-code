@@ -1,10 +1,14 @@
 package com.example.ums;
 
 import com.example.billing.Client;
+import com.example.billing.HttpClient;
+import com.example.billing.RabbitClient;
 import com.example.subscriptions.SubscriptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -51,9 +55,8 @@ public class Application implements CommandLineRunner {
         return new SubscriptionRepository(datasource);
     }
 
-    // This RestTemplate is specially constructed to use Spring Cloud Services
     @Bean
-    public Client billingClient(@Autowired RestTemplate restTemplate) {
-        return new Client(restTemplate);
+    public Client billingClient(@Value("${billingQueueName}")String billingQueueName, @Autowired RabbitTemplate rabbitTemplate) {
+        return new RabbitClient(billingQueueName, rabbitTemplate);
     }
 }
