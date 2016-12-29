@@ -35,6 +35,7 @@ dependencyManagement {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile(project(":components/payments"))
+	compile(project(":components/billing"))
 	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
 	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
 	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
