@@ -1,2 +1,8 @@
 server:
   port: 8080
+ums:
+  billingUrl: http://localhost:8081/reocurringPayments
+
+logging:
+  level:
+    com.example.ums: DEBUG
