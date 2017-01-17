@@ -1,36 +1,20 @@
 package com.example.billing;
 
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.web.client.RestTemplate;
-
-import java.net.URI;
-
-import static java.util.Arrays.asList;
 
 public class BillingClient {
 
-    private final String billingUrl;
+    private final RestTemplate restTemplate;
 
-    public BillingClient(String billingUrl) {
-        this.billingUrl = billingUrl;
+    public BillingClient(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
     public void billUser(String userId, Integer amountToBill) {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-        httpHeaders.setAccept(asList(MediaType.APPLICATION_JSON));
-
-        RequestEntity<String> request = new RequestEntity<>(
-                Integer.toString(amountToBill),
-                httpHeaders,
-                HttpMethod.POST,
-                URI.create(billingUrl)
+        restTemplate.postForEntity(
+                "//billing/reocurringPayments",
+                amountToBill,
+                String.class
         );
-
-        restTemplate.postForEntity(billingUrl, request, String.class);
     }
 }
