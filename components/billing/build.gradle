@@ -2,4 +2,5 @@ sourceCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("com.netflix.hystrix:hystrix-javanica:1.5.6")
 }

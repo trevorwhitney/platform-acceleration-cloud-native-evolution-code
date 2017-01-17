@@ -25,4 +25,6 @@ dependencies {
 	compile(project(':components/payments'))
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
-	testCompile('org.springframework.boot:spring-boot-starter-test') }
+	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
