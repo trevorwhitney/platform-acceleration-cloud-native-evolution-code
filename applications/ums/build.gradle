@@ -26,7 +26,9 @@ dependencies {
     compile(project(":components/subscriptions"))
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
+    compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
     compile("com.h2database:h2")
 }
