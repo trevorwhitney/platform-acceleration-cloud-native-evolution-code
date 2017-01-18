@@ -5,7 +5,7 @@ import com.example.billing.billing.RabbitBillingClient;
 import com.example.billing.subscriptions.SubscriptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +60,7 @@ public class Application implements CommandLineRunner {
 
     @Bean
     public BillingClient billingClient(
-            @Autowired RabbitMessagingTemplate rabbitTemplate,
+            @Autowired RabbitTemplate rabbitTemplate,
             @Value("${billingQueue}") String queueName
     ) {
         return new RabbitBillingClient(rabbitTemplate, queueName);

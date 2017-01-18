@@ -1,15 +1,15 @@
 package com.example.billing.billing;
 
-import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class RabbitBillingClient implements BillingClient {
 
-    private final RabbitMessagingTemplate rabbitTemplate;
+    private final RabbitTemplate rabbitTemplate;
     private final String queueName;
 
     @Autowired
-    public RabbitBillingClient(RabbitMessagingTemplate rabbitTemplate, String queueName) {
+    public RabbitBillingClient(RabbitTemplate rabbitTemplate, String queueName) {
         this.rabbitTemplate = rabbitTemplate;
         this.queueName = queueName;
     }
