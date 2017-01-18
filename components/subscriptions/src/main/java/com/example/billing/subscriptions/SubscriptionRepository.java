@@ -1,4 +1,4 @@
-package com.example.subscriptions;
+package com.example.billing.subscriptions;
 
 
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

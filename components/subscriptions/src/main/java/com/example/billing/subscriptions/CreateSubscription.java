@@ -1,8 +1,7 @@
-package com.example.subscriptions;
+package com.example.billing.subscriptions;
 
-import com.example.billing.BillingClient;
-import com.example.email.SendEmail;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.billing.billing.BillingClient;
+import com.example.billing.email.SendEmail;
 
 public class CreateSubscription {
 

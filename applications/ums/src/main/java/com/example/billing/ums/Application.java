@@ -1,10 +1,15 @@
-package com.example.ums;
+package com.example.billing.ums;
 
-import com.example.billing.BillingClient;
-import com.example.subscriptions.SubscriptionRepository;
+import com.example.billing.billing.BillingClient;
+import com.example.billing.billing.RabbitBillingClient;
+import com.example.billing.subscriptions.SubscriptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +30,9 @@ public class Application implements CommandLineRunner {
     }
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
+
+    @Value("${billingQueue}")
+    private String queueName;
 
     @Autowired
     NamedParameterJdbcTemplate datasource;
@@ -51,7 +59,15 @@ public class Application implements CommandLineRunner {
     }
 
     @Bean
-    public BillingClient billingClient(@Autowired RestTemplate restTemplate) {
-        return new BillingClient(restTemplate);
+    public BillingClient billingClient(
+            @Autowired RabbitMessagingTemplate rabbitTemplate,
+            @Value("${billingQueue}") String queueName
+    ) {
+        return new RabbitBillingClient(rabbitTemplate, queueName);
+    }
+
+    @Bean
+    public MessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }

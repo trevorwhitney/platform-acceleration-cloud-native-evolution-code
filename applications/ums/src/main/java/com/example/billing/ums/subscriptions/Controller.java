@@ -1,10 +1,10 @@
-package com.example.ums.subscriptions;
+package com.example.billing.ums.subscriptions;
 
-import com.example.billing.BillingClient;
-import com.example.email.SendEmail;
-import com.example.subscriptions.CreateSubscription;
-import com.example.subscriptions.Subscription;
-import com.example.subscriptions.SubscriptionRepository;
+import com.example.billing.billing.BillingClient;
+import com.example.billing.email.SendEmail;
+import com.example.billing.subscriptions.CreateSubscription;
+import com.example.billing.subscriptions.Subscription;
+import com.example.billing.subscriptions.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

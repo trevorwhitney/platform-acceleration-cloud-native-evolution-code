@@ -1,10 +1,13 @@
-package com.example.reocurringPayments;
+package com.example.billing.reocurringPayments;
 
-import com.example.payments.Gateway;
+import com.example.billing.payments.Gateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {

@@ -1,4 +1,4 @@
-package com.example.payments;
+package com.example.billing.payments;
 
 // Use of an interface here allows you to isolate
 // the rest of the code from concrete implementations

@@ -1,4 +1,4 @@
-package com.example.email;
+package com.example.billing.email;
 
 
 public class SendEmail {
