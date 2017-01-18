@@ -1,8 +1,8 @@
 package com.example.billing.billing;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonSerialize(using = BillingMessageSerializer.class)
+@JsonDeserialize(using = BillingMessageDeserializer.class)
 public class BillingMessage {
 
     private String userId;
@@ -20,6 +20,7 @@ public class BillingMessage {
     public Integer getPaymentAmount() {
         return paymentAmount;
     }
+
 
     @Override
     public String toString() {

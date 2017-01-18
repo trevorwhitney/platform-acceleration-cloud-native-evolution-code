@@ -2,7 +2,7 @@ package com.example.billing;
 
 import com.example.billing.payments.Gateway;
 import com.example.billing.payments.RecurlyGateway;
-import com.example.billing.reocurringPayments.BillingMessageConsumer;
+import com.example.billing.billing.BillingMessageConsumer;
 import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package com.example.billing.reocurringPayments;
+package com.example.billing.billing;
 
 import com.example.billing.payments.Gateway;
 import com.fasterxml.jackson.databind.ObjectMapper;
